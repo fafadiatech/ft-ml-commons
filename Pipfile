@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 scikit-learn = "*"
+pandas = "*"
+gensim = "*"
 
 [dev-packages]
 
