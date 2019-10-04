@@ -22,4 +22,4 @@ def load_dataset(file_to_read):
     return (train, label)
     """
     df = pd.read_csv(file_to_read, sep="\t", error_bad_lines=False)
-    return df.iloc[:, 1], df.iloc[:, 0]
+    return df.iloc[:, 1], df.iloc[:, 0].astype('int32')
