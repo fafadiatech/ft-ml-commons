@@ -2,6 +2,7 @@ import argparse
 import pandas as pd
 import numpy as np
 
+from pre_process import load_dataset
 from feature_gen import gen_counting_features
 
 from sklearn.decomposition import TruncatedSVD
@@ -19,12 +20,6 @@ parser.add_argument("train", help="training dataset in TSV format {label, text}"
 parser.add_argument("test", help="training dataset in TSV format {label, text}")
 args = parser.parse_args()
 
-def load_dataset(file_to_read):
-    """
-    this method is used to load dataset into pandas frame
-    """
-    df = pd.read_csv(file_to_read, sep="\t", error_bad_lines=False)
-    return df.iloc[:, 1], df.iloc[:, 0]
 
 def evaluate(model_context, X_train, y_train, X_test, y_test, detailed_report=False):
     """
